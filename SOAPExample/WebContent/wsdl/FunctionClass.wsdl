@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://com" xmlns:intf="http://com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="GCD_Method">
+    <complexType>
+     <sequence>
+      <element name="FirstNumber" type="xsd:int"/>
+      <element name="SecondNumber" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="GCD_MethodResponse">
+    <complexType>
+     <sequence>
+      <element name="GCD_MethodReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="LCM_Method">
+    <complexType>
+     <sequence>
+      <element name="FirstNumber" type="xsd:int"/>
+      <element name="SecondNumber" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="LCM_MethodResponse">
+    <complexType>
+     <sequence>
+      <element name="LCM_MethodReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="LCM_MethodResponse">
+
+      <wsdl:part element="impl:LCM_MethodResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="GCD_MethodRequest">
+
+      <wsdl:part element="impl:GCD_Method" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="LCM_MethodRequest">
+
+      <wsdl:part element="impl:LCM_Method" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="GCD_MethodResponse">
+
+      <wsdl:part element="impl:GCD_MethodResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FunctionClass">
+
+      <wsdl:operation name="GCD_Method">
+
+         <wsdl:input message="impl:GCD_MethodRequest" name="GCD_MethodRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:GCD_MethodResponse" name="GCD_MethodResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="LCM_Method">
+
+         <wsdl:input message="impl:LCM_MethodRequest" name="LCM_MethodRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:LCM_MethodResponse" name="LCM_MethodResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FunctionClassSoapBinding" type="impl:FunctionClass">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="GCD_Method">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="GCD_MethodRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="GCD_MethodResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="LCM_Method">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="LCM_MethodRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="LCM_MethodResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FunctionClassService">
+
+      <wsdl:port binding="impl:FunctionClassSoapBinding" name="FunctionClass">
+
+         <wsdlsoap:address location="http://localhost:8080/SOAPExample/services/FunctionClass"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
